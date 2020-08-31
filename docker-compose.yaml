@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: mfc4-ci
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
+    extra_hosts:
+      - 'host.docker.internal:172.17.0.1'
